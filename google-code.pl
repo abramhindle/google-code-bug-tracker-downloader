@@ -123,23 +123,6 @@ sub retrieve_issues {
 
     $xml = shift @xmls;
     if (@xmls >= 1) {
-        if (0) {
-	        # here's a terrible hack
-	        # convert the XML to text and jam it before </feed>
-	        my @nodes = ();
-	        foreach my $feed (@xmls) {
-	            my $xp = XML::XPath->new( xml => $xml );
-	            my @newnodes = $xp->find('/feed/entry')->get_nodelist;
-	            push @nodes, @newnodes;
-	        }
-	        my @nodexml = map { XML::XPath::XMLParser::as_string($_) } @nodes;
-	        my $newxml = join($/, @nodexml);
-	
-	        # drop the last feed
-	        $xml =~ s/<\/feed>//;
-	        $xml .= $newxml;
-	        $xml .= "$/</feed>$/";
-        }
         my $parser = new XML::DOM::Parser;
         my $maindoc = $parser->parse( $xml );
         my @docs = map { $parser->parse( $_ ) } @xmls;
