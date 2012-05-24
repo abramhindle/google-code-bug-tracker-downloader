@@ -1,0 +1,6 @@
+Google APIs are somewhate well documented but don't tell you everything about limits.
+
+This program lets you mirror google-code bug repos as their original RSS/XML that the Google API provides.
+
+It also ensures you get all of the bugs if there are more than 1000.
+
