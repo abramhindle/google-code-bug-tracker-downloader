@@ -4,3 +4,5 @@ This program lets you mirror google-code bug repos as their original RSS/XML tha
 
 It also ensures you get all of the bugs if there are more than 1000.
 
+
+License: The same license as Perl: Aristic/GPL2+
